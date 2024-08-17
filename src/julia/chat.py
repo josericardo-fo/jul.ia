@@ -13,17 +13,6 @@ from langchain_openai import ChatOpenAI, OpenAIEmbeddings
 CHROMA_PATH = "chroma"
 
 
-def get_api_key():
-    """Carrega as variáveis de ambiente necessárias, como a chave da API."""
-    load_dotenv()
-    api_key = os.getenv("OPENAI_API_KEY")
-    if not api_key:
-        raise ValueError(
-            "OPENAI_API_KEY não encontrada no ambiente. Verifique o arquivo .env."
-        )
-    return api_key
-
-
 def main():
     """Função principal para interagir com o usuário."""
     conversational_rag_chain = RunnableWithMessageHistory(
@@ -48,6 +37,17 @@ def main():
         )["answer"]
 
         print(f"Jul.ia: {answer}\n")
+
+
+def get_api_key():
+    """Carrega as variáveis de ambiente necessárias, como a chave da API."""
+    load_dotenv()
+    api_key = os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        raise ValueError(
+            "OPENAI_API_KEY não encontrada no ambiente. Verifique o arquivo .env."
+        )
+    return api_key
 
 
 def create_conversational_chain():
