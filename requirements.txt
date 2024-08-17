@@ -1,0 +1,11 @@
+python-dotenv==1.0.1
+pathlib==1.0.1
+pypdf==4.3.1
+langchain==0.2.14
+langchain-community==0.2.12
+langchain-openai==0.1.21
+langchain-chroma==0.1.2
+unstructured==0.15.3
+onnxruntime==1.19.0
+chromadb==0.5.5
+openai==1.40.8
