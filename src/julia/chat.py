@@ -63,7 +63,8 @@ def create_conversational_chain():
     # Configuração do prompt para contextualizar as perguntas do usuário
     contextualize_q_system_prompt = """
     Você é um assistente conversacional especializado em fornecer respostas contextualizadas com base em informações armazenadas.
-    Reformule a pergunta do usuário se necessário, considerando o contexto fornecido pela história do chat. Caso a pergunta já esteja clara, retorne-a como está.
+    Reformule a pergunta do usuário se necessário, considerando o contexto fornecido pela história do chat.
+    Caso a pergunta já esteja clara, retorne-a como está.
     """
     contextualize_q_prompt = ChatPromptTemplate.from_messages(
         [
@@ -109,6 +110,22 @@ def get_session_history(session_id: str) -> BaseChatMessageHistory:
     if session_id not in store:
         store[session_id] = ChatMessageHistory()
     return store[session_id]
+
+
+def get_response(user_input: str, session_id: str = "default_session"):
+    conversational_rag_chain = RunnableWithMessageHistory(
+        create_conversational_chain(),
+        get_session_history,
+        input_messages_key="input",
+        history_messages_key="chat_history",
+        output_messages_key="answer",
+    )
+
+    answer = conversational_rag_chain.invoke(
+        {"input": user_input},
+        config={"configurable": {"session_id": session_id}},
+    )["answer"]
+    return answer
 
 
 if __name__ == "__main__":
