@@ -1,8 +1,12 @@
+# Environments
 __pycache__/
+.venv/
+.conda/
 
-.vscode
-.venv
+# Editor/IDE
+.vscode/
+
+# Variáveis de ambiente
 .env
-.conda
 
 chroma
