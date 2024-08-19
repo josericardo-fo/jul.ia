@@ -37,7 +37,7 @@ function Chat() {
                     value={userInput}
                     onChange={(e) => setUserInput(e.target.value)}
                     placeholder="Digite sua mensagem..."
-                    onKeyPress={(e) => e.key === 'Enter' && sendMessage()}
+                    onKeyUp={(e) => e.key === 'Enter' && sendMessage()}
                 />
                 <button onClick={sendMessage}>Enviar</button>
             </div>
