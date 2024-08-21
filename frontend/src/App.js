@@ -1,12 +1,11 @@
-import React from 'react';
-import Chat from './Chat';
+import "./App.css";
+import Chat from "./Components/Chat";
+import Sidebar from "./Components/Sidebar";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Jul.ia</h1>
-      </header>
+      <Sidebar />
       <Chat />
     </div>
   );
