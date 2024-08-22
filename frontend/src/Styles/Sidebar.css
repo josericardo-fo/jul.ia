@@ -1,15 +1,20 @@
 .sideBar {
   flex: 2;
   border-right: 1px solid #5c677d;
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .logo {
   width: 50px;
   margin: 10px;
+}
+
+.logo:hover {
+  cursor: pointer;
 }
 
 .brand {
@@ -19,7 +24,7 @@
 .upperSide {
   padding: 25px;
   border-bottom: 1px solid #5c677d;
-  height: 70%;
+  min-height: 75%;
 }
 
 .upperSideTop {
@@ -39,27 +44,38 @@
   color: white;
   padding: 15px;
   font-size: 15px;
-  width: 250px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
   margin-bottom: 30px;
   border-radius: 5px;
+  cursor: pointer;
+  caret-color: transparent;
+}
+
+.midBtn:hover {
+  background: #0056b3;
 }
 
 .query {
   display: flex;
   align-items: center;
   background: transparent;
-  color: rgba(222, 222, 222, 1);
+  color: #d1d5db;
   padding: 15px;
   width: 250px;
-  margin: 10px auto;
+  margin: 10px 0;
   border-radius: 5px;
-  border: 1px solid rgba(98, 98, 98, 1);
-  font-family: "Montserrat", sans-serif;
+  border: 1px solid #4b5563;
   font-size: 12px;
+  cursor: pointer;
+  caret-color: transparent;
+}
+
+.query:hover {
+  background: #374151;
 }
 
 .query > img {
@@ -69,14 +85,21 @@
 }
 
 .lowerSide {
-  padding: 20px;
+  padding: 15px;
 }
 
 .listItems {
-  margin: 7.5px;
+  margin: 7.5px 0;
   display: flex;
   align-items: center;
   font-size: 13px;
+  cursor: pointer;
+  caret-color: transparent;
+}
+
+.listItems:hover {
+  background: #4b5563;
+  border-radius: 5px;
 }
 
 .listItemsImg {

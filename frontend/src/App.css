@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
 }
 
 html {
@@ -13,7 +14,7 @@ body {
   color: white;
 }
 
-.App {
-  min-height: 100vh;
+.app-container {
   display: flex;
+  min-height: 100vh;
 }

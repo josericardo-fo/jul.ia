@@ -24,6 +24,10 @@
   height: calc(100vh - 170px);
 }
 
+.chats::-webkit-scrollbar {
+  display: none;
+}
+
 .chat {
   margin: 10px;
   padding: 20px 30px;
@@ -72,10 +76,22 @@
   outline: none;
   padding: 12.5px;
   color: white;
-}
-
-.inp > input,
-.send {
   background: transparent;
   border: none;
+}
+
+.inp > .send {
+  background: transparent;
+  border: none;
+  caret-color: transparent;
+  opacity: 0.5;
+}
+
+.inp > .send.active {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.inp > .send.active img {
+  filter: invert(100%);
 }

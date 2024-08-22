@@ -1,43 +1,64 @@
+import React, { useState } from "react";
+import { sendMessage } from "../Api";
 import logoBlueBg from "../assets/hummingbird-blue-bg.png";
 import sendBtn from "../assets/send.svg";
 import userProfile from "../assets/user-profile.png";
 import "../Styles/Chat.css";
 
 function Chat() {
+  const [messages, setMessages] = useState([]);
+  const [userInput, setUserInput] = useState("");
+
+  const handleSendMessage = async () => {
+    if (!userInput) return;
+
+    // Adiciona a mensagem do usuário ao estado
+    setMessages([...messages, { type: "user", text: userInput }]);
+
+    // Envia a mensagem para o backend e obtém a resposta
+    const botResponse = await sendMessage(userInput);
+
+    // Adiciona a resposta do bot ao estado
+    setMessages([
+      ...messages,
+      { type: "user", text: userInput },
+      { type: "bot", text: botResponse },
+    ]);
+
+    // Limpa o campo de entrada de texto
+    setUserInput("");
+  };
+
   return (
     <div className="main">
       <div className="chats">
-        <div className="chat">
-          <img className="chatImg" src={userProfile} alt="" />
-          <p className="txt">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste sit
-            cupiditate sequi, hic adipisci aliquam nemo eaque quisquam fugiat
-            dolores, rem, optio totam? Adipisci incidunt optio ducimus magnam.
-            Repellendus, culpa!
-          </p>
-        </div>
-        <div className="chat bot">
-          <img className="chatImg" src={logoBlueBg} alt="" />
-          <p className="txt">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit
-            dolorum dolore error ullam eveniet. Quas ut tempora hic? Quisquam
-            deserunt velit quae beatae laudantium possimus, delectus pariatur
-            sequi maxime deleniti commodi nulla quia laborum culpa amet nam,
-            quas corrupti non quaerat numquam ea officia. Quisquam, esse maxime.
-            Aspernatur doloribus unde veniam maiores aliquid eos beatae
-            praesentium dicta, inventore suscipit ratione quaerat ut corporis
-            modi nulla! Mollitia obcaecati soluta, eius assumenda modi magnam
-            velit unde optio numquam nesciunt tempore, sint animi fugiat
-            architecto maiores asperiores beatae vero? Recusandae fugit
-            dignissimos molestias. Ut, facere autem! Maiores ab quia cumque
-            necessitatibus quae labore.
-          </p>
-        </div>
+        {messages.map((msg, index) => (
+          <div
+            key={index}
+            className={`chat ${msg.type === "bot" ? "bot" : ""}`}
+          >
+            <img
+              className="chatImg"
+              src={msg.type === "bot" ? logoBlueBg : userProfile}
+              alt=""
+            />
+            <p className="txt">{msg.text}</p>
+          </div>
+        ))}
       </div>
       <div className="chatFooter">
         <div className="inp">
-          <input type="text" placeholder="Mensagem Jul.ia" />
-          <button className="send">
+          <input
+            type="text"
+            placeholder="Mensagem para Jul.ia"
+            value={userInput}
+            onChange={(e) => setUserInput(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
+          />
+          <button
+            className={`send ${userInput ? "active" : ""}`}
+            onClick={handleSendMessage}
+          >
             <img src={sendBtn} alt="Enviar" />
           </button>
         </div>
