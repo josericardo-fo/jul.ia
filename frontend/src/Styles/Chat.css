@@ -1,8 +1,17 @@
+:root {
+  --main-color: #33415c;
+  --text-color: white;
+  --chat-width: 780px;
+  --chat-img-size: 35px;
+  --chat-padding: 20px 30px;
+  --font-family: "Montserrat", sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-family);
 }
 
 .main {
@@ -30,23 +39,23 @@
 
 .chat {
   margin: 10px;
-  padding: 20px 30px;
+  padding: var(--chat-padding);
   font-size: 12px;
   display: flex;
   align-items: flex-start;
   text-align: justify;
+  border-radius: 5px;
 }
 
 .chatImg {
   object-fit: cover;
-  width: 35px;
+  width: var(--chat-img-size);
   margin-right: 20px;
   border-radius: 5px;
 }
 
 .bot {
-  background: #33415c;
-  border-radius: 5px;
+  background: var(--main-color);
 }
 
 .chatFooter {
@@ -64,18 +73,18 @@
 
 .inp {
   padding: 5px;
-  background: #33415c;
+  background: var(--main-color);
   display: flex;
   align-items: center;
   border-radius: 5px;
-  width: 780px;
+  width: var(--chat-width);
 }
 
 .inp > input {
   width: calc(100% - 30px);
   outline: none;
   padding: 12.5px;
-  color: white;
+  color: var(--text-color);
   background: transparent;
   border: none;
 }

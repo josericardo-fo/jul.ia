@@ -1,33 +1,40 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import { sendMessage } from "../Api";
 import logoBlueBg from "../assets/hummingbird-blue-bg.png";
 import sendBtn from "../assets/send.svg";
 import userProfile from "../assets/user-profile.png";
 import "../Styles/Chat.css";
 
-function Chat() {
+// Function to handle sending the message
+const handleSendMessage = async (userInput, setMessages, setUserInput) => {
+  if (!userInput) return;
+
+  // Add the user's message to the chat immediately
+  setMessages((prevMessages) => [
+    ...prevMessages,
+    { type: "user", text: userInput },
+  ]);
+
+  // Clear the input field
+  setUserInput("");
+
+  // Send the message to the backend and get the bot's response
+  const botResponse = await sendMessage(userInput);
+
+  // Add the bot's response to the chat
+  setMessages((prevMessages) => [
+    ...prevMessages,
+    { type: "bot", text: botResponse },
+  ]);
+};
+
+const Chat = React.memo(() => {
   const [messages, setMessages] = useState([]);
   const [userInput, setUserInput] = useState("");
 
-  const handleSendMessage = async () => {
-    if (!userInput) return;
-
-    // Adiciona a mensagem do usuário ao estado
-    setMessages([...messages, { type: "user", text: userInput }]);
-
-    // Envia a mensagem para o backend e obtém a resposta
-    const botResponse = await sendMessage(userInput);
-
-    // Adiciona a resposta do bot ao estado
-    setMessages([
-      ...messages,
-      { type: "user", text: userInput },
-      { type: "bot", text: botResponse },
-    ]);
-
-    // Limpa o campo de entrada de texto
-    setUserInput("");
-  };
+  const handleSend = useCallback(() => {
+    handleSendMessage(userInput, setMessages, setUserInput);
+  }, [userInput, setMessages, setUserInput]);
 
   return (
     <div className="main">
@@ -53,11 +60,11 @@ function Chat() {
             placeholder="Mensagem para Jul.ia"
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
+            onKeyDown={(e) => e.key === "Enter" && handleSend()}
           />
           <button
             className={`send ${userInput ? "active" : ""}`}
-            onClick={handleSendMessage}
+            onClick={handleSend}
           >
             <img src={sendBtn} alt="Enviar" />
           </button>
@@ -69,6 +76,6 @@ function Chat() {
       </div>
     </div>
   );
-}
+});
 
 export default Chat;

@@ -7,15 +7,16 @@ import msgIcon from "../assets/message.svg";
 import rocketIcon from "../assets/rocket.svg";
 import "../Styles/Sidebar.css";
 
+// Move handler functions outside the component
+const startNewChat = () => {
+  console.log("Iniciar nova conversa"); // Implement the logic for starting a new chat here
+};
+
+const handleQueryClick = (query) => {
+  console.log(`Consulta rápida: ${query}`); // Implement the logic for handling quick queries here
+};
+
 function Sidebar() {
-  const startNewChat = () => {
-    console.log("Iniciar nova conversa"); // Implemente a lógica de uma nova conversa aqui
-  };
-
-  const handleQueryClick = (query) => {
-    console.log(`Consulta rápida: ${query}`); // Implemente a lógica para lidar com as consultas rápidas
-  };
-
   return (
     <div className="sideBar">
       <div className="upperSide">
