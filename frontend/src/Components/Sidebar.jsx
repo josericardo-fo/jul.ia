@@ -31,16 +31,19 @@ function Sidebar() {
         <div className="upperSideBottom">
           <button
             className="query"
-            onClick={() => handleQueryClick("Quero marcar uma consulta")}
+            onClick={() =>
+              handleQueryClick("Como fazer os primeiros socorros?")
+            }
           >
             <img src={msgIcon} alt="Query" className="" />
-            Quero marcar uma consulta
+            Como fazer os primeiros socorros?
           </button>
           <button
             className="query"
-            onClick={() => handleQueryClick("O que são queimaduras?")}
+            onClick={() => handleQueryClick("Como devo tratar uma queimadura?")}
           >
-            <img src={msgIcon} alt="Query" className="" />O que são queimaduras?
+            <img src={msgIcon} alt="Query" className="" />
+            Como devo tratar uma queimadura?
           </button>
         </div>
       </div>

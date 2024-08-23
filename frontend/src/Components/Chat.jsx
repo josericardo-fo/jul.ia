@@ -34,6 +34,30 @@ const Chat = React.memo(() => {
       type: "bot",
       text: "Olá! Eu sou a Jul.ia, sua assistente virtual. Posso responder perguntas com base nas informações fornecidas, fornecer orientações e auxiliar com dúvidas dentro dos limites do meu conhecimento. Como posso ajudar você?",
     },
+    {
+      type: "bot",
+      text: "Teste",
+    },
+    {
+      type: "bot",
+      text: "Teste",
+    },
+    {
+      type: "bot",
+      text: "Teste",
+    },
+    {
+      type: "bot",
+      text: "Teste",
+    },
+    {
+      type: "bot",
+      text: "Teste",
+    },
+    {
+      type: "bot",
+      text: "Teste",
+    },
   ]);
   const [userInput, setUserInput] = useState("");
 
@@ -49,14 +73,14 @@ const Chat = React.memo(() => {
 
   return (
     <div className="main">
-      <div className="chats">
+      <div className="chat">
         {messages.map((msg, index) => (
           <div
             key={index}
-            className={`chat ${msg.type === "bot" ? "bot" : ""}`}
+            className={`message ${msg.type === "bot" ? "bot" : ""}`}
           >
             <img
-              className="chatImg"
+              className="messageImg"
               src={msg.type === "bot" ? logoBlueBg : userProfile}
               alt=""
             />

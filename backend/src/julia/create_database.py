@@ -88,7 +88,7 @@ def save_to_chroma(chunks: list[Document]):
         shutil.rmtree(CHROMA_PATH)
 
     Chroma.from_documents(chunks, OpenAIEmbeddings(), persist_directory=CHROMA_PATH)
-    print(f"{len(chunks)} chunks salvos em {CHROMA_PATH}.")
+    print(f"{len(chunks)} chunks salvos na pasta {CHROMA_PATH}.")
 
 
 if __name__ == "__main__":

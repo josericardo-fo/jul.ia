@@ -5,7 +5,6 @@
   --chat-img-size: 35px;
   --chat-padding: 20px 30px;
   --font-family: "Montserrat", sans-serif;
-  scroll-behavior: smooth;
 }
 
 * {
@@ -24,7 +23,7 @@
   margin-bottom: 0;
 }
 
-.chats {
+.chat {
   overflow: hidden;
   overflow-y: scroll;
   scroll-behavior: smooth;
@@ -35,7 +34,7 @@
   height: calc(100vh - 170px);
 }
 
-.chat {
+.message {
   margin: 10px;
   padding: var(--chat-padding);
   font-size: 12px;
@@ -45,7 +44,7 @@
   border-radius: 5px;
 }
 
-.chatImg {
+.messageImg {
   object-fit: cover;
   width: var(--chat-img-size);
   margin-right: 20px;
@@ -90,7 +89,6 @@
 .inp > .send {
   background: transparent;
   border: none;
-  caret-color: transparent;
   opacity: 0.5;
 }
 
