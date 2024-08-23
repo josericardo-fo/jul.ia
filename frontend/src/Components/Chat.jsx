@@ -28,38 +28,13 @@ const handleSendMessage = async (userInput, setMessages, setUserInput) => {
   ]);
 };
 
-const Chat = React.memo(() => {
+const Chat = React.memo(({ userInput, setUserInput }) => {
   const [messages, setMessages] = useState([
     {
       type: "bot",
       text: "Olá! Eu sou a Jul.ia, sua assistente virtual. Posso responder perguntas com base nas informações fornecidas, fornecer orientações e auxiliar com dúvidas dentro dos limites do meu conhecimento. Como posso ajudar você?",
     },
-    {
-      type: "bot",
-      text: "Teste",
-    },
-    {
-      type: "bot",
-      text: "Teste",
-    },
-    {
-      type: "bot",
-      text: "Teste",
-    },
-    {
-      type: "bot",
-      text: "Teste",
-    },
-    {
-      type: "bot",
-      text: "Teste",
-    },
-    {
-      type: "bot",
-      text: "Teste",
-    },
   ]);
-  const [userInput, setUserInput] = useState("");
 
   const msgEnd = useRef(null);
 

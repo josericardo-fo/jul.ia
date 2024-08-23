@@ -7,16 +7,15 @@ import msgIcon from "../assets/message.svg";
 import rocketIcon from "../assets/rocket.svg";
 import "../Styles/Sidebar.css";
 
-// Move handler functions outside the component
 const startNewChat = () => {
   window.location.reload();
 };
 
-const handleQueryClick = (query) => {
-  console.log(`Consulta rápida: ${query}`); // Implement the logic for handling quick queries here
-};
+function Sidebar({ setUserInput }) {
+  const handleQueryClick = (query) => {
+    setUserInput(query);
+  };
 
-function Sidebar() {
   return (
     <div className="sideBar">
       <div className="upperSide">
