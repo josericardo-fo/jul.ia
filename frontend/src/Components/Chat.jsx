@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { sendMessage } from "../Api";
 import logoBlueBg from "../assets/hummingbird-blue-bg.png";
 import sendBtn from "../assets/send.svg";
@@ -29,12 +29,23 @@ const handleSendMessage = async (userInput, setMessages, setUserInput) => {
 };
 
 const Chat = React.memo(() => {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([
+    {
+      type: "bot",
+      text: "Olá! Eu sou a Jul.ia, sua assistente virtual. Posso responder perguntas com base nas informações fornecidas, fornecer orientações e auxiliar com dúvidas dentro dos limites do meu conhecimento. Como posso ajudar você?",
+    },
+  ]);
   const [userInput, setUserInput] = useState("");
+
+  const msgEnd = useRef(null);
 
   const handleSend = useCallback(() => {
     handleSendMessage(userInput, setMessages, setUserInput);
   }, [userInput, setMessages, setUserInput]);
+
+  useEffect(() => {
+    msgEnd.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages.length]);
 
   return (
     <div className="main">
@@ -52,6 +63,7 @@ const Chat = React.memo(() => {
             <p className="txt">{msg.text}</p>
           </div>
         ))}
+        <div ref={msgEnd}></div> {/* Elemento final para scroll */}
       </div>
       <div className="chatFooter">
         <div className="inp">
@@ -60,7 +72,7 @@ const Chat = React.memo(() => {
             placeholder="Mensagem para Jul.ia"
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && handleSend()}
+            onKeyDown={(e) => e.key === "Enter" && handleSend()} // Envia a mensagem ao pressionar Enter
           />
           <button
             className={`send ${userInput ? "active" : ""}`}

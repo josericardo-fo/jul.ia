@@ -9,7 +9,7 @@ import "../Styles/Sidebar.css";
 
 // Move handler functions outside the component
 const startNewChat = () => {
-  console.log("Iniciar nova conversa"); // Implement the logic for starting a new chat here
+  window.location.reload();
 };
 
 const handleQueryClick = (query) => {

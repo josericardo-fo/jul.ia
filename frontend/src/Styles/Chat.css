@@ -5,6 +5,7 @@
   --chat-img-size: 35px;
   --chat-padding: 20px 30px;
   --font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
 }
 
 * {
@@ -27,14 +28,11 @@
   overflow: hidden;
   overflow-y: scroll;
   scroll-behavior: smooth;
-  scrollbar-width: none;
+  scrollbar-width: thin;
+  scrollbar-color: #888 #333;
   width: 100%;
   max-width: 800px;
   height: calc(100vh - 170px);
-}
-
-.chats::-webkit-scrollbar {
-  display: none;
 }
 
 .chat {
