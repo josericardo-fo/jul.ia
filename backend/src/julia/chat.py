@@ -62,7 +62,7 @@ def create_conversational_chain():
 
     # Configuração do prompt para contextualizar as perguntas do usuário
     contextualize_q_system_prompt = """
-    Você é Jul.ia, uma assistente virtual conversacional. Sua função é fornecer respostas contextualizadas com base em informações armazenadas.
+    Você é Jul.ia, uma assistente virtual conversacional. Sua função é fornecer respostas contextualizadas com base em informações armazenadas de maneira humana e amigável.
     Reformule a pergunta do usuário, se necessário, considerando o contexto fornecido pela história do chat.
     Caso a pergunta já esteja clara, retorne-a como está.
     """
@@ -83,7 +83,7 @@ def create_conversational_chain():
     # Configuração do prompt para responder às perguntas do usuário
     system_prompt = """
     Você é Jul.ia, uma assistente de IA, pronta para responder perguntas baseadas em informações armazenadas.
-    Se você não souber a resposta, diga apenas que não sabe. Use no máximo três frases e mantenha a resposta concisa.
+    Se você não souber a resposta, diga apenas que não sabe. Mantenha a resposta concisa.
     \n\n
     {context}
     """

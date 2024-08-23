@@ -16,6 +16,11 @@ function Sidebar({ setUserInput }) {
     setUserInput(query);
   };
 
+  const quickQueries = [
+    "Como devo realizar os primeiros socorros?",
+    "Como devo tratar uma queimadura?",
+  ];
+
   return (
     <div className="sideBar">
       <div className="upperSide">
@@ -30,19 +35,17 @@ function Sidebar({ setUserInput }) {
         <div className="upperSideBottom">
           <button
             className="query"
-            onClick={() =>
-              handleQueryClick("Como fazer os primeiros socorros?")
-            }
+            onClick={() => handleQueryClick(quickQueries[0])}
           >
             <img src={msgIcon} alt="Query" className="" />
-            Como fazer os primeiros socorros?
+            {quickQueries[0]}
           </button>
           <button
             className="query"
-            onClick={() => handleQueryClick("Como devo tratar uma queimadura?")}
+            onClick={() => handleQueryClick(quickQueries[1])}
           >
             <img src={msgIcon} alt="Query" className="" />
-            Como devo tratar uma queimadura?
+            {quickQueries[1]}
           </button>
         </div>
       </div>
