@@ -1,0 +1,113 @@
+.sideBar {
+  flex: 2;
+  border-right: 1px solid #5c677d;
+  font-weight: 400;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 50px;
+  margin: 10px;
+}
+
+.logo:hover {
+  cursor: pointer;
+}
+
+.brand {
+  font-size: 20px;
+}
+
+.upperSide {
+  padding: 25px;
+  border-bottom: 1px solid #5c677d;
+  min-height: 75%;
+}
+
+.upperSideTop {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.addBtn {
+  height: 20px;
+  padding-right: 10px;
+}
+
+.midBtn {
+  background: #0466c8;
+  border: none;
+  color: white;
+  padding: 15px;
+  font-size: 15px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.midBtn:hover {
+  background: #0056b3;
+}
+
+.query {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  color: #d1d5db;
+  padding: 15px;
+  width: 250px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #4b5563;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.query:hover {
+  background: #374151;
+}
+
+.query > img {
+  margin-right: 20px;
+  object-fit: cover;
+  height: 17.5px;
+}
+
+.lowerSide {
+  padding: 15px;
+}
+
+.listItems {
+  margin: 7.5px 0;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.listItems:hover {
+  background: #4b5563;
+  border-radius: 5px;
+}
+
+.listItemsImg {
+  margin: 10px;
+  padding-right: 10px;
+}
+
+.listItems:nth-child(1) > .listItemsImg {
+  margin-right: 5px;
+}
+
+.listItems:nth-child(3) > .listItemsImg {
+  margin-right: 7.5px;
+}

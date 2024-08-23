@@ -9,3 +9,5 @@ unstructured==0.15.3
 onnxruntime==1.19.0
 chromadb==0.5.5
 openai==1.40.8
+flask==3.0.3
+flask_cors==4.0.1
