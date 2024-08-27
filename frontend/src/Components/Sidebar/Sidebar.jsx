@@ -5,7 +5,7 @@ import homeIcon from "../assets/home.svg";
 import logo from "../assets/hummingbird.png";
 import msgIcon from "../assets/message.svg";
 import rocketIcon from "../assets/rocket.svg";
-import "../Styles/Sidebar.css";
+import "./Sidebar.css";
 
 const startNewChat = () => {
   window.location.reload();

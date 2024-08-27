@@ -3,7 +3,7 @@ import { sendMessage } from "../Api";
 import logoBlueBg from "../assets/hummingbird-blue-bg.png";
 import sendBtn from "../assets/send.svg";
 import userProfile from "../assets/user-profile.png";
-import "../Styles/Chat.css";
+import "./Chat.css";
 
 // Function to handle sending the message
 const handleSendMessage = async (userInput, setMessages, setUserInput) => {
